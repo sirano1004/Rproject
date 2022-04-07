@@ -4,3 +4,5 @@ print(x + y)
 
 z <- 3.
 print(x  + z)
+
+print(x + y + z)
