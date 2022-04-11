@@ -1,20 +1,29 @@
 genParen <- function(n){
     addParen <- function(res, left, right, cand, count){
-        stopofnot(left > 0 & left < right)
+        if(left > 0 & left <= right){
         
-        if(left == 0 & right == 0){
-            append(res, cand)
-        }
-        else{
-            if(left > 0){
-                
+            if(left == 0 & right == 0){
+                res[[length(res) + 1]] <- cand
+            }
+            else{
+                if(left > 0){
+                    cand[count] <- "("
+                    addParen(res, left - 1, right, cand, count + 1)
+                }
+
+                if(right > 0){
+                    cand[count] <- ")"
+                    addParen(res, left, right - 1, cand, count + 1)
+                }
             }
         }
     }
+    cand <- character(2 * n)
+    res <- list()
+    addParen(res, n, n, cand, 0)
+    res
 }
 
-a <- "abcd"
-substr(a, 1 , 1) <- 'e'
-print(a)
 
+print(genParen(2))
 
