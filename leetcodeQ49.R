@@ -1,10 +1,7 @@
 groupAnagrams <- function(strs){
     dic <- list()
     for(char in strs){
-        temp_char <- ""
-        for(c in sort_str(char)){
-            temp_char <- paste(c(temp_char, c), collapse = "")
-        }
+        temp_char <- sort_str(char)
 
         if(!(temp_char %in% names(dic))){
             dic[temp_char] <- list(char)
@@ -20,7 +17,7 @@ groupAnagrams <- function(strs){
     res
 }
 sort_str <- function(str){
-    str <- sort(strsplit(str,"")[[1]])
+    str <- paste(sort(strsplit(str,"")[[1]]), collapse = "")
 }
 
 test <- c("eat","tea","tan","ate","nat","bat")
