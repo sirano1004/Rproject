@@ -1,8 +1,6 @@
 genParen <- function(n){
     addParen <- function(res, left, right, cand, count){
-        print(left)
-        print(right)
-        print(cand)
+
         if(left >= 0 & left <= right){
             
             if(left == 0 & right == 0){
@@ -21,7 +19,6 @@ genParen <- function(n){
                 }
             }
         }
-        print(cand)
         res
     }
     cand <- character(2 * n)
